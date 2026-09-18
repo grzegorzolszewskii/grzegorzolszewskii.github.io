@@ -44,11 +44,18 @@
   a{color:inherit;}
   ::selection{background:var(--accent-dim);}
 
-  header.site{display:flex;justify-content:space-between;align-items:center;padding:1.6rem 3rem;}
+  header.site{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.6rem 3rem;}
   header.site .name{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:500;}
+  header.site .header-right{display:flex;align-items:center;gap:2rem;}
   header.site nav ul{display:flex;gap:2rem;list-style:none;font-size:0.9rem;color:var(--text-muted);}
   header.site nav a{text-decoration:none;}
   header.site nav a:hover{color:var(--accent);}
+
+  .lang-switch{display:flex;border:1px solid var(--border);}
+  .lang-switch button{background:none;border:0;color:var(--text-muted);font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:500;letter-spacing:0.06em;padding:0.35rem 0.7rem;cursor:pointer;transition:color 0.15s ease,background-color 0.15s ease;}
+  .lang-switch button + button{border-left:1px solid var(--border);}
+  .lang-switch button:hover{color:var(--text);}
+  .lang-switch button[aria-pressed="true"]{background:var(--accent-dim);color:var(--text);}
 
   .split{display:grid;grid-template-columns:1fr 1fr;min-height:calc(100vh - 76px);}
 
@@ -67,6 +74,8 @@
   .split-right img{width:100%;height:100%;object-fit:cover;display:block;}
 
   @media (max-width: 800px){
+    header.site{padding:1.2rem 1.5rem;}
+    header.site .header-right{gap:1.2rem;}
     .split{grid-template-columns:1fr;}
     .split-left{padding:2.5rem 1.5rem;}
     .split-right{height:52vh;}
@@ -79,11 +88,17 @@
 
 <header class="site">
   <span class="name">Julia Wiśniewska</span>
-  <nav>
-    <ul>
-      <li><a href="#">Kontakt</a></li>
-    </ul>
-  </nav>
+  <div class="header-right">
+    <nav>
+      <ul>
+        <li><a href="#" data-i18n="nav.contact">Kontakt</a></li>
+      </ul>
+    </nav>
+    <div class="lang-switch" role="group" data-i18n-label="lang.groupLabel" aria-label="Wybór języka">
+      <button type="button" data-lang="pl" aria-pressed="true" lang="pl">PL</button>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    </div>
+  </div>
 </header>
 
 <div class="split">
@@ -98,7 +113,7 @@
                 <path d="M22 5c-2-1-5-1-7 0v14c2-1 5-1 7 0V5z"/>
               </svg>
             </span>
-            <span class="label">Dydaktyka</span>
+            <span class="label" data-i18n="tile.teaching">Dydaktyka</span>
           </a>
         </li>
         <li>
@@ -109,7 +124,7 @@
                 <polyline points="16 6 21 12 16 18"/>
               </svg>
             </span>
-            <span class="label">Programowanie (probably OK)</span>
+            <span class="label" data-i18n="tile.programming">Programowanie</span>
           </a>
         </li>
         <li>
@@ -120,7 +135,7 @@
                 <polygon points="14.5 9.5 10 10 9.5 14.5 14 14 14.5 9.5"/>
               </svg>
             </span>
-            <span class="label">Rozwój osobisty</span>
+            <span class="label" data-i18n="tile.growth">Rozwój osobisty</span>
           </a>
         </li>
         <li>
@@ -132,7 +147,7 @@
                 <path d="M3 12h18"/>
               </svg>
             </span>
-            <span class="label">Doświadczenie zawodowe</span>
+            <span class="label" data-i18n="tile.experience">Doświadczenie zawodowe</span>
           </a>
         </li>
       </ul>
@@ -140,7 +155,7 @@
   </div>
 
   <div class="split-right">
-    <img src="https://i.pravatar.cc/900?img=47" alt="Zdjęcie profilowe — Julia Wiśniewska">
+    <img src="https://i.pravatar.cc/900?img=47" data-i18n-alt="img.portraitAlt" alt="Zdjęcie profilowe — Julia Wiśniewska">
   </div>
 </div>
 
@@ -149,6 +164,102 @@
   <span>LinkedIn</span>
   <span>GitHub</span>
 </footer>
+
+<script>
+(function(){
+  var STORAGE_KEY = 'lang';
+  var DEFAULT_LANG = 'pl';
+
+  var translations = {
+    pl: {
+      'meta.title': 'Julia Wiśniewska — Korepetycje z matematyki i informatyki, programowanie, rozwój osobisty',
+      'meta.description': 'Korepetycje z matematyki i informatyki dla liceum, technikum i maturzystów. Tworzenie aplikacji mobilnych i stron internetowych, specjalizacja w cyberbezpieczeństwie. Felietony o misji, wizji i rozwoju osobistym.',
+      'meta.ogTitle': 'Julia Wiśniewska — korepetycje, programowanie, rozwój osobisty',
+      'meta.ogDescription': 'Korepetycje z matematyki i informatyki (matura, liceum, technikum), aplikacje mobilne, strony internetowe, cyberbezpieczeństwo oraz teksty o rozwoju osobistym.',
+      'meta.ogLocale': 'pl_PL',
+      'lang.groupLabel': 'Wybór języka',
+      'nav.contact': 'Kontakt',
+      'tile.teaching': 'Dydaktyka',
+      'tile.programming': 'Programowanie',
+      'tile.growth': 'Rozwój osobisty',
+      'tile.experience': 'Doświadczenie zawodowe',
+      'img.portraitAlt': 'Zdjęcie profilowe — Julia Wiśniewska'
+    },
+    en: {
+      'meta.title': 'Julia Wiśniewska — Maths and computer science tutoring, programming, personal growth',
+      'meta.description': 'Maths and computer science tutoring for high school and final-exam students. Mobile app and website development, specialising in cybersecurity. Essays on mission, vision and personal growth.',
+      'meta.ogTitle': 'Julia Wiśniewska — tutoring, programming, personal growth',
+      'meta.ogDescription': 'Maths and computer science tutoring (final exams, high school), mobile apps, websites, cybersecurity and writing on personal growth.',
+      'meta.ogLocale': 'en_US',
+      'lang.groupLabel': 'Language selection',
+      'nav.contact': 'Contact',
+      'tile.teaching': 'Teaching',
+      'tile.programming': 'Programming',
+      'tile.growth': 'Personal growth',
+      'tile.experience': 'Professional experience',
+      'img.portraitAlt': 'Profile photo — Julia Wiśniewska'
+    }
+  };
+
+  function store(lang){
+    try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+  }
+
+  function initialLang(){
+    var fromUrl = new URLSearchParams(location.search).get('lang');
+    if (translations[fromUrl]) return fromUrl;
+    try {
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if (translations[saved]) return saved;
+    } catch(e) {}
+    var browser = (navigator.language || '').slice(0, 2).toLowerCase();
+    return translations[browser] ? browser : DEFAULT_LANG;
+  }
+
+  function setMeta(selector, value){
+    var el = document.querySelector(selector);
+    if (el) el.setAttribute('content', value);
+  }
+
+  function apply(lang){
+    var dict = translations[lang] || translations[DEFAULT_LANG];
+
+    document.documentElement.lang = lang;
+    document.title = dict['meta.title'];
+    setMeta('meta[name="description"]', dict['meta.description']);
+    setMeta('meta[property="og:title"]', dict['meta.ogTitle']);
+    setMeta('meta[property="og:description"]', dict['meta.ogDescription']);
+    setMeta('meta[property="og:locale"]', dict['meta.ogLocale']);
+
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var value = dict[el.dataset.i18n];
+      if (value != null) el.textContent = value;
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(el){
+      var value = dict[el.dataset.i18nAlt];
+      if (value != null) el.alt = value;
+    });
+    document.querySelectorAll('[data-i18n-label]').forEach(function(el){
+      var value = dict[el.dataset.i18nLabel];
+      if (value != null) el.setAttribute('aria-label', value);
+    });
+
+    document.querySelectorAll('.lang-switch button').forEach(function(btn){
+      btn.setAttribute('aria-pressed', String(btn.dataset.lang === lang));
+    });
+  }
+
+  document.querySelectorAll('.lang-switch button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var lang = btn.dataset.lang;
+      store(lang);
+      apply(lang);
+    });
+  });
+
+  apply(initialLang());
+})();
+</script>
 
 </body>
 </html>
