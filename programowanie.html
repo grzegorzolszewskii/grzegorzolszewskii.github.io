@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Programowanie — Grzegorz Olszewski</title>
+<meta name="description" content="Strony internetowe, które zrealizowałem, oraz aplikacje mobilne w przygotowaniu.">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Programowanie — Grzegorz Olszewski">
+<meta property="og:description" content="Zrealizowane strony internetowe i aplikacje mobilne w przygotowaniu.">
+<meta property="og:locale" content="pl_PL">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <a class="name" href="index.html">Grzegorz Olszewski</a>
+  <div class="header-right">
+    <div class="lang-switch" role="group" data-i18n-label="lang.groupLabel" aria-label="Wybór języka">
+      <button type="button" data-lang="pl" aria-pressed="true" lang="pl">PL</button>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+  <div class="page-inner wide">
+    <a class="back" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="15 5 8 12 15 19"/>
+      </svg>
+      <span data-i18n="nav.back">Strona główna</span>
+    </a>
+
+    <h1 data-i18n="page.h1">Programowanie</h1>
+
+    <div class="cols">
+
+      <section class="col">
+        <h2 data-i18n="sec.web">Strony internetowe</h2>
+        <ul class="projects">
+          <li>
+            <a href="https://voytec.com.pl/dj.html" target="_blank" rel="noopener noreferrer">
+              <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7"/>
+                <polyline points="8 7 17 7 17 16"/>
+              </svg>
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 15v-3a8 8 0 0 1 16 0v3"/>
+                  <rect x="2" y="14" width="5.5" height="7" rx="2"/>
+                  <rect x="16.5" y="14" width="5.5" height="7" rx="2"/>
+                </svg>
+              </span>
+              <span class="name">DJ Voytec</span>
+              <span class="desc" data-i18n="proj.dj.desc">Oprawa muzyczna wesel i imprez</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://pankurka.pl/" target="_blank" rel="noopener noreferrer">
+              <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7"/>
+                <polyline points="8 7 17 7 17 16"/>
+              </svg>
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2.5c3.6 3.9 5.5 7.4 5.5 10.4a5.5 5.5 0 0 1-11 0c0-3 1.9-6.5 5.5-10.4z"/>
+                </svg>
+              </span>
+              <span class="name">Pan Kurka</span>
+              <span class="desc" data-i18n="proj.kurka.desc">Świeże jajka prosto od rolnika</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.redcode-service.pl/" target="_blank" rel="noopener noreferrer">
+              <svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M7 17 17 7"/>
+                <polyline points="8 7 17 7 17 16"/>
+              </svg>
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="10.5" cy="10.5" r="6.5"/>
+                  <path d="M15.5 15.5 21 21"/>
+                </svg>
+              </span>
+              <span class="name">Red Code Service</span>
+              <span class="desc" data-i18n="proj.redcode.desc">Agencja detektywistyczna z Wrocławia</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="col">
+        <h2 data-i18n="sec.mobile">Aplikacje mobilne</h2>
+        <p class="wip" data-i18n="wip">in progress…</p>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <a href="mailto:grzegorz.olszewski24@gmail.com">grzegorz.olszewski24@gmail.com</a>
+</footer>
+
+<script>
+window.PAGE_I18N = {
+  pl: {
+    'meta.title': 'Programowanie — Grzegorz Olszewski',
+    'meta.description': 'Strony internetowe, które zrealizowałem, oraz aplikacje mobilne w przygotowaniu.',
+    'meta.ogTitle': 'Programowanie — Grzegorz Olszewski',
+    'meta.ogDescription': 'Zrealizowane strony internetowe i aplikacje mobilne w przygotowaniu.',
+    'page.h1': 'Programowanie',
+    'sec.web': 'Strony internetowe',
+    'sec.mobile': 'Aplikacje mobilne',
+    'proj.dj.desc': 'Oprawa muzyczna wesel i imprez',
+    'proj.kurka.desc': 'Świeże jajka prosto od rolnika',
+    'proj.redcode.desc': 'Agencja detektywistyczna z Wrocławia',
+    'wip': 'in progress…'
+  },
+  en: {
+    'meta.title': 'Programming — Grzegorz Olszewski',
+    'meta.description': 'Websites I have built, and mobile apps in progress.',
+    'meta.ogTitle': 'Programming — Grzegorz Olszewski',
+    'meta.ogDescription': 'Websites I have built and mobile apps in progress.',
+    'page.h1': 'Programming',
+    'sec.web': 'Websites',
+    'sec.mobile': 'Mobile apps',
+    'proj.dj.desc': 'DJ and music for weddings and events',
+    'proj.kurka.desc': 'Fresh eggs straight from the farm',
+    'proj.redcode.desc': 'Detective agency based in Wrocław',
+    'wip': 'in progress…'
+  }
+};
+</script>
+<script src="i18n.js"></script>
+
+</body>
+</html>
