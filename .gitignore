@@ -1,0 +1,12 @@
+# Instrukcja obsługi tej strony — tylko do użytku lokalnego.
+# Nie trafia na GitHuba ani na GitHub Pages.
+README.md
+
+# Śmieci systemu i edytora
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~

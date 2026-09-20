@@ -45,11 +45,13 @@ main.stage{flex:1;display:flex;padding:0 3rem 3rem;}
   header.site{padding:1.2rem 1.5rem;}
   header.site .header-right{gap:1.2rem;}
   main.stage{padding:0 1.2rem 1.6rem;}
-  .frame{min-height:72vh;}
-  /* Waska szerokosc: zamiast prawej polowy kafelki zajmuja dolna polowe kadru. */
-  .frame::after{background:linear-gradient(180deg,transparent 24%,rgba(26,28,31,0.55) 42%,rgba(26,28,31,0.7) 100%);}
-  .tile-grid{top:42%;left:0;right:0;bottom:0;width:auto;}
-  .tile-grid a{padding:0.6rem 1.1rem;gap:0.9rem;justify-content:flex-start;}
+  /* Waska szerokosc: bez zdjecia, same kafelki wypelniaja ekran. */
+  .frame{display:flex;min-height:0;background:none;}
+  .frame img,
+  .frame::after{display:none;}
+  .tile-grid{position:static;flex:1;width:auto;gap:0.8rem;}
+  .tile-grid a{padding:1.2rem;gap:1rem;justify-content:flex-start;background:var(--bg-alt);border-color:var(--border);backdrop-filter:none;-webkit-backdrop-filter:none;}
+  .tile-grid a:hover{background:var(--bg-alt);}
   .tile-grid .icon{width:28px;height:28px;}
   .tile-grid .label{font-size:1.05rem;text-align:left;}
 }
