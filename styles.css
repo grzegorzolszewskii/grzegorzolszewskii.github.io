@@ -216,6 +216,17 @@ a{color:inherit;}
 .fact dd{font-weight:600;line-height:1.4;}
 .fact dd small{display:block;font-weight:400;font-size:0.9rem;color:var(--text-muted);margin-top:0.2rem;}
 
+/* Cennik */
+.prices{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1.25rem;}
+.price{display:flex;flex-direction:column;gap:0.6rem;background:var(--bg-alt);border:1px solid var(--border);border-radius:14px;padding:1.5rem;}
+.price.featured{border-color:var(--accent);}
+.price-amount{display:flex;align-items:baseline;gap:0.5rem;}
+.price-amount b{font-size:clamp(2rem,3.4vw,2.6rem);font-weight:700;letter-spacing:-0.03em;line-height:1.1;color:var(--accent);font-variant-numeric:tabular-nums;}
+.price-amount span{font-size:0.95rem;color:var(--text-muted);}
+.price p:not(.price-amount){color:var(--text-muted);font-size:0.97rem;}
+.price-note{max-width:var(--narrow);margin-top:1.5rem;color:var(--text-muted);}
+.price-note strong{color:var(--text);font-weight:600;}
+
 /* Odnośnik tekstowy */
 .text-link{color:var(--text);text-decoration-color:var(--accent);text-underline-offset:4px;text-decoration-thickness:2px;}
 .text-link:hover{color:var(--accent);}
